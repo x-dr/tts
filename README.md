@@ -14,6 +14,16 @@
 
 <img src="https://img1.131213.xyz/file/23f45cf2a989a13842839.png" width="600px">
 
+> 修改前端
+ 
+`https://raw.githubusercontent.com/x-dr/cf_pages/main/tts.html` 是前端代码 ，想修改的自己修改下面行就行
+
+```javascript
+    const html = await fetch("https://raw.githubusercontent.com/x-dr/cf_pages/main/tts.html")
+```
+
+***
+
 #### 利用docker部署
 
 1. 下载docker镜像
@@ -38,6 +48,8 @@ docker run -itd \
 http://ip:3035/
 ```
 
+
+***
 
 #### 利用Vercel部署
 
