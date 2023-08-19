@@ -41,6 +41,8 @@ http://ip:3035/
 #### 利用Vercel部署
 
 
+[![Deploy with Vercel](https://vercel.com/button?utm_source=busiyi&utm_campaign=oss)](https://vercel.com/new/clone?utm_source=busiyi&utm_campaign=oss&repository-url=https://github.com/x-dr/tts)
+
 #### 利用Linux服务器部署
 
 1. 安装nodejs (如果已经安装过nodejs则跳过此步骤)
