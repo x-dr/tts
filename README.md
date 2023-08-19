@@ -1,6 +1,9 @@
 ## 微软azure文本转语音 音频下载
 *Demo* : [https://tts.131213.xyz/](https://tts.131213.xyz/)
 
+
+> *本文由GitHub Copilot 生成*
+
 ### 1. 介绍
 
 本项目是基于微软azure的文本转语音服务，通过调用微软azure的api接口，将文本转换为语音，然后下载到本地。
@@ -88,7 +91,7 @@ npm install
 5. 运行项目
 
 ```bash
-node app.js
+node index.js
 ```
 
 6. 访问地址
