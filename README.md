@@ -18,7 +18,7 @@
 1. 下载docker镜像
 
 ```bash
-docker pull tts-azure:latest
+docker pull gindex/tts-azure:latest
 ```
 
 2. 运行容器
@@ -28,7 +28,7 @@ docker run -itd \
            --name tts \
             -p 3035:3035 \
            --restart=always \
-           tts-azure:latest
+           gindex/tts-azure:latest
 ```
 
 3. 访问地址
@@ -43,14 +43,14 @@ http://ip:3035/
 
 #### 利用Linux服务器部署
 
-1. 安装nodejs
+1. 安装nodejs (如果已经安装过nodejs则跳过此步骤)
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-2. 安装git
+2. 安装git (如果已经安装过git则跳过此步骤)
 
 ```bash
 sudo apt-get install git
@@ -59,7 +59,7 @@ sudo apt-get install git
 3. 下载项目
 
 ```bash
-git clone 
+git clone https://github.com/x-dr/tts.git
 ```
 
 4. 安装依赖
