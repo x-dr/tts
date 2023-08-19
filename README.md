@@ -16,7 +16,7 @@
 
 > 修改前端
  
-`https://raw.githubusercontent.com/x-dr/cf_pages/main/tts.html` 是前端代码 ，想修改的自己修改下面行就行
+`https://raw.githubusercontent.com/x-dr/cf_pages/main/tts.html` 是前端代码 ，想修改的自己修改cf_worker.js中的下面行就行
 
 ```javascript
     const html = await fetch("https://raw.githubusercontent.com/x-dr/cf_pages/main/tts.html")
