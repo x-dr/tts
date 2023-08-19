@@ -12,6 +12,7 @@
 
 2. 将 [cf_worker.js](https://github.com/x-dr/tts/blob/main/cf_worker.js) 中的代码复制到 Cloudflare Worker 中并部署即可
 
+<img src="https://img1.131213.xyz/file/23f45cf2a989a13842839.png" width="600px">
 
 #### 利用docker部署
 
