@@ -34,7 +34,7 @@ addEventListener('fetch', event => {
   const speechApi = async (ssml) => {
     const data = JSON.stringify({
         ssml,
-        ttsAudioFormat: "audio-24khz-160kbitrate-mono-mp3",
+        ttsAudioFormat: "audio-48khz-192kbitrate-mono-mp3",
         offsetInPlainText: 0,
         properties: {
             SpeakTriggerSource: "AccTuningPagePlayButton",
