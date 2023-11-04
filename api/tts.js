@@ -21,10 +21,10 @@ const speechApi = (ssml) => {
 
     var config = {
         method: "post",
-        url: "https://southeastasia.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak",
+        url: "https://eastus.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak",
         responseType: "arraybuffer",
         headers: {
-            authority: "southeastasia.api.speech.microsoft.com",
+            authority: "eastus.api.speech.microsoft.com",
             accept: "*/*",
             "accept-language": "zh-CN,zh;q=0.9",
             customvoiceconnectionid: generateUUID(),
