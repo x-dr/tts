@@ -12,9 +12,9 @@ addEventListener('fetch', event => {
     return uuid;
   }
   
-  const API_URL = "https://southeastasia.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak";
+  const API_URL = "https://eastus.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak";
   const DEFAULT_HEADERS = {
-    authority: "southeastasia.api.speech.microsoft.com",
+    authority: "eastus.api.speech.microsoft.com",
     accept: "*/*",
     "accept-language": "zh-CN,zh;q=0.9",
     customvoiceconnectionid: generateUUID(),
