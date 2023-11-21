@@ -102,3 +102,8 @@ http://ip:3035/
 
 ### 3. 使用说明
 
+
+### Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=x-dr/tts&type=Date)](https://star-history.com/#x-dr/tts&Date)
+
