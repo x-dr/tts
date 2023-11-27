@@ -105,5 +105,6 @@ http://ip:3035/
 
 ### Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=x-dr/tts&type=Date)](https://star-history.com/#x-dr/tts&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=x-dr/tts&type=Timeline)](https://star-history.com/#x-dr/tts&Timeline)
+
 

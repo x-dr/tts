@@ -37,7 +37,18 @@
             margin-bottom: 5px;
         }
 
-        select,
+
+        select{
+            width: 80%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            color: #33404d;
+            transition: border .3s, box-shadow .3s;
+        }
+
         textarea {
             width: 100%;
             padding: 5px;
@@ -111,6 +122,18 @@
         a {
             text-decoration: none;
         }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            /* 调整按钮之间的间隔，根据需要进行调整 */
+        }
+
+        .button-group button {
+            padding: 10px;
+            /* 调整按钮的内边距，根据需要进行调整 */
+        }
     </style>
 </head>
 
@@ -118,18 +141,30 @@
     <main>
         <h1>语音合成</h1>
         <div>
-            <label for="voiceSelect">声音：</label>
-            <select id="voiceSelect"></select>
-            <label for="voiceStyleSelect">声音风格：</label>
-            <select id="voiceStyleSelect"></select>
-            <label for="rateRange">语速：</label>
-            <input type="range" id="rateRange" min="0" max="100" value="0">
-            <label for="pitchRange">音调：</label>
-            <input type="range" id="pitchRange" min="0" max="100" value="0">
+            <label for="voiceSelect">声音：
+                <select id="voiceSelect"></select>
+            </label>
+            <label for="voiceStyleSelect">风格：
+                <select id="voiceStyleSelect"></select>
+            </label>
+            <label for="rateRange">语速：
+                <input type="range" id="rateRange" min="0" max="100" value="0">
+            </label>
+            <label for="pitchRange">音调：
+                <input type="range" id="pitchRange" min="0" max="100" value="0">
+            </label>
+
             <label for="ssmlInput">SSML 文本：</label>
-            <textarea id="ssmlInput" rows="4" cols="50"></textarea>
-            <button onclick="playAudio()">播放音频</button>
-            <button onclick="downloadAudio()">下载音频</button>
+            <textarea id="ssmlInput" rows="4" cols="50">Azure tts 测试</textarea>
+            <div class="button-group">
+                <button onclick="playAudio()">播放音频</button>
+                <button onclick="downloadAudio()">下载音频</button>
+
+            </div>
+            <div class="button-group">
+                <button onclick="legado()">一键导入阅读</button>
+                <button onclick="sourceReader()">复制源阅读导入链接</button>
+            </div>
         </div>
         <audio id="audioPlayer" controls></audio>
     </main>
@@ -215,6 +250,30 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        }
+        function legado() {
+            const voice = document.getElementById("voiceSelect").value;
+            const voiceStyle = document.getElementById("voiceStyleSelect").value;
+            const rate = document.getElementById("rateRange").value;
+            const pitch = document.getElementById("pitchRange").value;
+            const text = document.getElementById("ssmlInput").value;
+
+            const url = `/legado?voice=${encodeURIComponent(voice)}&voiceStyle=${encodeURIComponent(voiceStyle)}&rate=${encodeURIComponent(rate)}&pitch=${encodeURIComponent(pitch)}&text=${encodeURIComponent(text)}`;
+            importUrl = "legado://import/httpTTS?src=" + encodeURIComponent(window.location.origin + url);
+            window.open(importUrl, '_blank');
+        }
+
+        function sourceReader() {
+            const voice = document.getElementById("voiceSelect").value;
+            const voiceStyle = document.getElementById("voiceStyleSelect").value;
+            const rate = document.getElementById("rateRange").value;
+            const pitch = document.getElementById("pitchRange").value;
+            const url = `/audio?text={{speakText}}&rate=${encodeURIComponent(rate)}&pitch=${encodeURIComponent(pitch)}&voice=${encodeURIComponent(voice)}&voiceStyle=${encodeURIComponent(voiceStyle)},{"method":"GET"}`;
+            navigator.clipboard.writeText(window.location.origin + url).then(function () {
+                alert('复制成功！');
+            }, function (err) {
+                alert('复制失败: ', err);
+            });
         }
     </script>
 </body>

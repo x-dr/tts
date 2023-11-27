@@ -43,7 +43,31 @@ app.get("/audio", async (req, res) => {
     }
 });
 
+app.get("/legado", async (req, res) => {
+    try{
 
+        const { voice, rate, pitch, voiceStyle } = req.query;
+
+        const dataJson = {
+            "concurrentRate": "",//并发率
+            "contentType": "audio/mpeg",
+            "header": "",
+            "id": Date.now(),
+            "lastUpdateTime": Date.now(),
+            "loginCheckJs": "",
+            "loginUi": "",
+            "loginUrl": "",
+            "name": `Azure  ${voice} ${voiceStyle} pitch: ${pitch} rate:${rate}`,
+            "url": `${origin}/audio?text={{speakText}}&rate=${rate}&pitch=${pitch}&voice=${voice}&voiceStyle=${voiceStyle},{"method":"GET"}`,
+        }
+
+        res.send(dataJson);
+
+    }catch(error){
+
+    }
+
+});
 
 // 启动服务器，监听在指定端口上
 const port = process.env.PORT || 3035;
