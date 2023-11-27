@@ -67,7 +67,7 @@ const handleRequest = async (request) => {
     const clientIP = request.headers.get("CF-Connecting-IP")
 
     if (url.pathname == "/") {
-        const html = await fetch("https://raw.githubusercontent.com/x-dr/cf_pages/main/ttstest.html")
+        const html = await fetch("https://raw.githubusercontent.com/x-dr/tts/main/public/index.html")
 
         const page = await html.text()
         return new Response(page, {

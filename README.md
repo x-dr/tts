@@ -102,6 +102,13 @@ http://ip:3035/
 
 ### 3. 使用说明
 
+> 开源阅读3.0 tts使用 一键导入或复制链接填写
+
+<img src="https://img1.131213.xyz/file/d7171ec78c7042bed42cb.png" width="50%" height="50%" />
+
+### 4. 更新日志
+
++ 2023-11-27 : 添加一键导入阅读3.0 按钮
 
 ### Star History
 
