@@ -11,6 +11,9 @@ app.use(Express.json())
 app.use(Express.urlencoded({ extended: false }))
 app.use(Express.static(__dirname+'/public'));
 
+
+
+
 app.get("/audio", async (req, res) => {
     try {
 
@@ -48,6 +51,10 @@ app.get("/legado", async (req, res) => {
 
         const { voice, rate, pitch, voiceStyle } = req.query;
 
+        // const hostname = req.hostname;
+        const hostname = req.rawHeaders[1];
+        console.log(req.rawHeaders[1]);
+
         const dataJson = {
             "concurrentRate": "",//并发率
             "contentType": "audio/mpeg",
@@ -58,7 +65,7 @@ app.get("/legado", async (req, res) => {
             "loginUi": "",
             "loginUrl": "",
             "name": `Azure  ${voice} ${voiceStyle} pitch: ${pitch} rate:${rate}`,
-            "url": `${origin}/audio?text={{speakText}}&rate=${rate}&pitch=${pitch}&voice=${voice}&voiceStyle=${voiceStyle},{"method":"GET"}`,
+            "url": `https://${hostname}/audio?text={{speakText}}&rate=${rate}&pitch=${pitch}&voice=${voice}&voiceStyle=${voiceStyle},{"method":"GET"}`,
         }
 
         res.send(dataJson);
