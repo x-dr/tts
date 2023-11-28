@@ -163,7 +163,7 @@
             </div>
             <div class="button-group">
                 <button onclick="legado()">一键导入阅读</button>
-                <button onclick="sourceReader()">复制阅读tts链接</button>
+                <button onclick="sourceReader()">复制源阅读tts链接</button>
             </div>
         </div>
         <audio id="audioPlayer" controls></audio>
@@ -258,7 +258,7 @@
             const pitch = document.getElementById("pitchRange").value;
             const text = document.getElementById("ssmlInput").value;
 
-            const url = `/legado?voice=${encodeURIComponent(voice)}&voiceStyle=${encodeURIComponent(voiceStyle)}&rate=${encodeURIComponent(rate)}&pitch=${encodeURIComponent(pitch)}&text=${encodeURIComponent(text)}`;
+            const url = `/legado?voice=${encodeURIComponent(voice)}&voiceStyle=${encodeURIComponent(voiceStyle)}&rate=${encodeURIComponent(rate)}&pitch=${encodeURIComponent(pitch)}`;
             importUrl = "legado://import/httpTTS?src=" + encodeURIComponent(window.location.origin + url);
             window.open(importUrl, '_blank');
         }
@@ -268,7 +268,8 @@
             const voiceStyle = document.getElementById("voiceStyleSelect").value;
             const rate = document.getElementById("rateRange").value;
             const pitch = document.getElementById("pitchRange").value;
-            const url = `/audio?text={{speakText}}&rate=${encodeURIComponent(rate)}&pitch=${encodeURIComponent(pitch)}&voice=${encodeURIComponent(voice)}&voiceStyle=${encodeURIComponent(voiceStyle)},{"method":"GET"}`;
+            const text = document.getElementById("ssmlInput").value;
+            const url = `/sourcereader?voice=${encodeURIComponent(voice)}&voiceStyle=${encodeURIComponent(voiceStyle)}&rate=${encodeURIComponent(rate)}&pitch=${encodeURIComponent(pitch)}`;            
             navigator.clipboard.writeText(window.location.origin + url).then(function () {
                 alert('复制成功！');
             }, function (err) {

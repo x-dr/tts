@@ -115,7 +115,7 @@ const handleRequest = async (request) => {
         const origin = url.origin
         const params = new URLSearchParams(url.search);
         // 获取查询参数中的文本
-        const text = params.get("text");
+        // const text = params.get("text");
         // 获取查询参数中的语速
         const rate = params.get("rate");
         // 获取查询参数中的音高
@@ -151,7 +151,38 @@ const handleRequest = async (request) => {
 
 
 
-    } 
+    } else if (url.pathname == "/sourcereader") {
+        const origin = url.origin
+        const params = new URLSearchParams(url.search);
+        // 获取查询参数中的文本
+        // const text = params.get("text");
+        // 获取查询参数中的语速
+        const rate = params.get("rate");
+        // 获取查询参数中的音高
+        const pitch = params.get("pitch");
+        // 获取查询参数中的音色
+        const voice = params.get("voice");
+        // 获取查询参数中的音色风格
+        const voiceStyle = params.get("voiceStyle");
+
+        const dataJson = [{
+            "customOrder": 100,
+            "id": Date.now(),
+            "lastUpdateTime": Date.now(),
+            "name": ` ${voice} ${voiceStyle} pitch: ${pitch} rate:${rate}`,
+            "url": `${origin}/audio?text={{speakText}}&rate=${rate}&pitch=${pitch}&voice=${voice}&voiceStyle=${voiceStyle},{"method":"GET"}`,
+        }]
+        return new Response(JSON.stringify(dataJson), {
+            headers: {
+                "content-type": "application/json;charset=UTF-8",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": "true",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Methods": "*",
+                "ip": `Access cloudflare's ip:${clientIP}`
+            },
+        })
+    }
     else {
         return new Response("page", {
             headers: {

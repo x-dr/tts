@@ -46,7 +46,7 @@ app.get("/audio", async (req, res) => {
     }
 });
 
-app.get("/legado", async (req, res) => {
+app.get("/sourcereader", async (req, res) => {
     try{
 
         const { voice, rate, pitch, voiceStyle } = req.query;
@@ -67,6 +67,30 @@ app.get("/legado", async (req, res) => {
             "name": `Azure  ${voice} ${voiceStyle} pitch: ${pitch} rate:${rate}`,
             "url": `https://${hostname}/audio?text={{speakText}}&rate=${rate}&pitch=${pitch}&voice=${voice}&voiceStyle=${voiceStyle},{"method":"GET"}`,
         }
+
+        res.send(dataJson);
+
+    }catch(error){
+
+    }
+
+});
+app.get("/legado", async (req, res) => {
+    try{
+
+        const { voice, rate, pitch, voiceStyle } = req.query;
+
+        // const hostname = req.hostname;
+        const hostname = req.rawHeaders[1];
+        console.log(req.rawHeaders[1]);
+
+        const dataJson = [{
+            "customOrder": 100,
+            "id": Date.now(),
+            "lastUpdateTime": Date.now(),
+            "name": ` ${voice} ${voiceStyle} pitch: ${pitch} rate:${rate}`,
+            "url": `https://${hostname}/audio?text={{speakText}}&rate=${rate}&pitch=${pitch}&voice=${voice}&voiceStyle=${voiceStyle},{"method":"GET"}`,
+        }]
 
         res.send(dataJson);
 
